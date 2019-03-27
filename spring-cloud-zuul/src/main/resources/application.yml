@@ -4,12 +4,7 @@ server:
 spring:
   application:
     name: zuul-server
-zuul:
-  routes:
-    api-member:
-      path: /api-member/**
-      serviceId: member
-    api-order:
-      path: /api-order/**
-      serviceId: order
-      
+
+
+swagger:
+  base-package: com.cgy

@@ -26,7 +26,9 @@ public class MyFilter extends ZuulFilter {
 		RequestContext context = RequestContext.getCurrentContext();
 		
 		String token = context.getRequest().getParameter("token");
-		if(StringUtils.isEmpty(token)) {
+		String url = context.getRequest().getRequestURI();
+		System.out.println("url:::"+url);
+		if(StringUtils.isEmpty(token)&& !url.endsWith("/v2/api-docs")) {
 			context.setSendZuulResponse(false);
 			context.setResponseBody("token is null");
 			context.setResponseStatusCode(401);
